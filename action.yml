@@ -1,0 +1,45 @@
+name: 'Notify through slack'
+description: 'Notify developers using Github actions through slack'
+branding:
+  icon: slack
+  color: orange
+inputs:
+  channel:
+    description: 'The Slack channel name to post in. You need either this or channel id.'
+    required: false
+  channel_id:
+    description: The Slack channel id to post in. You need either this or channel name.'
+    required: false
+  status:
+    description: 'The status of the workflow at this stage. (running|success|failure|cancelled|skipped)'
+    required: true
+  message_id:
+    description: 'The ID of an existing Slack message to update.'
+    required: false
+  title_prefix:
+    description: 'Something to add to before the generic text of the notification.'
+    required: false
+  title_suffix:
+    description: 'Something to after to before the generic text of the notification.'
+    required: false
+  steps:
+    description: 'Steps followed by the workflow in json'
+    required: false
+  notes:
+    description: 'Additional information to pass to Slack in JSON format'
+    required: false
+  matrix:
+    description: 'All matrix data to json'
+    required: false
+  version:
+    description: 'Version number being targeted'
+    required: false
+  inputs:
+    description: 'Inputs fed to the workflow'
+    required: false
+outputs:
+  message_id:
+    description: 'The unique timestamp identifier of the Slack message sent'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

@@ -1,0 +1,49 @@
+name: Arno Messenger CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js v12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: yarn install
+        run: |
+          yarn
+        env:
+          CI: true
+
+      - name: yarn build
+        run: yarn build
+
+      - name: release
+        if: ${{ endsWith(github.ref, '/main') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONNAL_ACCESS_TOKEN }}
+        run: npx semantic-release
+
+      - name: Update version tag
+        if: ${{ endsWith(github.ref, '/main') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONNAL_ACCESS_TOKEN }}
+        run: 'git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v2'
