@@ -1,5 +1,8 @@
 # ARNO Messenger
 
+# Credits
+
+This action is heavily inspired by (Slack Notify Build)[https://github.com/voxmedia/github-action-slack-notify-build] and [💬 Send Message to Slack 🚀](https://github.com/archive/github-actions-slack). Remaking a separate action from the amazing work of those two actions was a tremendous learning opportunity.
 ## Requirements
 
 For Arno to do it's job properly you will need the following :

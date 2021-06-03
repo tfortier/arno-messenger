@@ -2,7 +2,7 @@
   "name": "notify-through-slack",
   "description": "Notify developers using Github actions through slack",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "scripts": {
     "build": "ncc build index.js",
@@ -42,9 +42,10 @@
         "@semantic-release/git",
         {
           "assets": [
+            "action.yaml",
             "CHANGELOG.md",
-            "package.json",
-            "dist"
+            "dist",
+            "package.json"
           ]
         }
       ]

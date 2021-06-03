@@ -46,4 +46,4 @@ jobs:
         if: ${{ endsWith(github.ref, '/main') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONNAL_ACCESS_TOKEN }}
-        run: 'git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v2'
+        run: 'git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v3'
