@@ -4,11 +4,11 @@ branding:
   icon: slack
   color: orange
 inputs:
-slack-bot-user-oauth-access-token:
+  slack-bot-user-oauth-access-token:
     description: "Bot User OAuth Access Token"
     required: true
-  slack-channel:
-    description: "Channel"
+  slack-channel-id:
+    description: "Channel ID"
     required: true
   slack-text:
     description: "Text"
@@ -31,7 +31,7 @@ slack-bot-user-oauth-access-token:
   slack-optional-link_names:
     description: "https://api.slack.com/methods/chat.postMessage#arg_link_names"
     required: false
-  slack-optional-mrkdwn:
+  slack-optional-markdown:
     description: "https://api.slack.com/methods/chat.postMessage#arg_mrkdwn"
     required: false
   slack-optional-parse:
