@@ -49,8 +49,8 @@ const { formatChannelName } = require('./src/formatChannelName');
         eventName:          github.context.eventName,
         job:                github.context.job,
         payload:            github.context.payload,
-        repositoryName:     github.context.payload.repository.full_name,
-        repositoryUrl:      github.context.payload.repository.html_url,
+        repositoryName:     github.context.payload?.repository?.full_name ?? github.context.repo.repo,
+        repositoryUrl:      github.context.payload?.repository?.html_url ?? "",
         runId:              github.context.runId,
         workflowName:       github.context.workflow,
     }
