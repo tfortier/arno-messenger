@@ -1,7 +1,15 @@
 function buildActorLink(actor){
 
     const githubToSlack = {
-        tfortier: "tfortier",
+        dominiclabbe: 'dlabbe',
+        flambert: 'flambert',
+        guillaumeaudet: 'gaudet',
+        jdtremblay : 'jd',
+        mbaron: 'mbaron',
+        PhilippeBettez: 'pbettez',
+        romarickb: 'romaric',
+        tfortier: 'tfortier',
+        valdesekamdem: 'KKV'
     }
 
     return {
